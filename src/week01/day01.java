@@ -1,5 +1,7 @@
 package week01;
 
+import com.sun.org.apache.xpath.internal.objects.XNull;
+
 /**
  * @author niuben
  */
@@ -25,6 +27,8 @@ public class day01 {
      * 6. 0.2.0.33       合法
      */
     public boolean check(String ip) {
+        if (ip == null) { return false; }
+
         // 不允许有魔法值
         int len = 4;
 
@@ -85,7 +89,9 @@ public class day01 {
 //        String  ip = "223. 3 3. 13 . 33";
 //        String ip = "2ba. 33. 13 . 33";
 //        String ip = "232. 33. 13";
-        String ip = "232. .33. 13";
+//        String ip = "232. .33. 13";
+
+        String ip = null;
 
         System.out.println(exampl1.check(ip));
     }
