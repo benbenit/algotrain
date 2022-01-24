@@ -8,19 +8,27 @@ public class Day01 {
     public static void main(String[] args) {
         Example1 example1 = new Example1();
         Example2 example2 = new Example2();
+        Example3 example3 = new Example3();
 
 //        String ip = "123.9.2.0";
 //        String ip = "223. 33. 13 . 33";
-//        String  ip = "223. 3 3. 13 . 33";
+//        String ip = "223. 3 3. 13 . 33";
 //        String ip = "2ba. 33. 13 . 33";
 //        String ip = "232. 33. 13";
 //        String ip = "232. .33. 13";
 //
 //        String ip1 = null;
 //        System.out.println(example1.check(ip1));
+//
+//        String ip2 = "123.9.2.0";
+//        System.out.println(example2.defangIpAddr(ip2));
 
-        String ip2 = "123.9.2.0";
-        System.out.println(example2.defangIpAddr(ip2));
+        int count3 = example3.drink(3);
+        int count4 = example3.drink(4);
+        int count5 = example3.drink(5);
+        int count6 = example3.drink(6);
+        int count7 = example3.drink(7);
+
     }
 
 }
@@ -122,5 +130,59 @@ class Example2 {
         }
 
         return new String(descIp);
+    }
+}
+
+/**例题3 阿里暑期实习
+ * 现有×瓶啤酒,
+ * 每3个空瓶子换一瓶啤酒,
+ * 每7个瓶盖子也可以换一瓶啤酒,
+ * 问最后可以喝多少瓶啤酒。
+ */
+class Example3 {
+    public int drink(int x) {
+        int count = x;
+        int a = x;
+        int b = x;
+
+        while (a >= 3) {
+            a = a - 3;
+            b = b + 1;
+            count = count + 1;
+            while (b >= 7) {
+                b = b - 7;
+                a = a + 1;
+                count = count + 1;
+            }
+        }
+        System.out.println("开始:" + x + "瓶,最终酒瓶:" + a + "个,瓶盖:" + b + "个,一共喝了" + count + "瓶.");
+        return count;
+    }
+}
+
+/**
+ * 例题4: 剑指offer 61.扑克牌中的顺子
+ * 从扑克牌中随机抽5张牌,判断是不是一个顺子,即这5张牌是不是连续的。
+ * 2~10为数字本身,A为1, J为11, Q为12, K为13
+ * 大、小王为0，可以看成任意数字。
+ * A不能视为14。
+ *
+ */
+class Example4 {
+    public boolean isStraight(int[] num) {
+        boolean[] dup = new boolean[14];
+        int min = 100;
+        int max = -1;
+        for (int i = 0; i < 5; i++) {
+            if (num[i] != 0) {
+                if (dup[num[i]]) return false;
+                else dup[num[i]] = true;
+
+                if (num[i] < min) min = num[i];
+                if (num[i] > max) max = num[i];
+
+            }
+        }
+        return (max - min) < 5;
     }
 }
