@@ -38,4 +38,15 @@ public class LinkedList {
         return null;
     }
 
+    /**
+     * 链头插入
+     */
+    public void insertAtHead(int value) {
+        Node newNode = new Node(value, null);
+        newNode.next = head;
+        head = newNode;
+    }
+
+
+
 }
