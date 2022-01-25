@@ -53,17 +53,15 @@ public class LinkedList {
     public void insertAtTail(int value) {
         Node newNode = new Node(value, null);
 
-        Node p = head;
-        Node q = null;
-
         if (head == null) {
             head = newNode;
         } else {
-            while (p != null) {
-                q = p;
+            Node p = head;
+            // 前面用p判断的时候,用q记录前一个节点的位置,这里直接用p.next进行判断
+            while (p.next != null) {
                 p = p.next;
             }
-            q.next = newNode;
+            p.next = newNode;
         }
     }
 
