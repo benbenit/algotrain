@@ -47,6 +47,25 @@ public class LinkedList {
         head = newNode;
     }
 
+    /**
+     * 链尾插入
+     */
+    public void insertAtTail(int value) {
+        Node newNode = new Node(value, null);
+
+        Node p = head;
+        Node q = null;
+
+        if (head == null) {
+            head = newNode;
+        } else {
+            while (p != null) {
+                q = p;
+                p = p.next;
+            }
+            q.next = newNode;
+        }
+    }
 
 
 }
