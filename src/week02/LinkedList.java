@@ -23,5 +23,19 @@ public class LinkedList {
             p = p.next;
         }
     }
+    /**
+     * 查找
+     */
+    public Node find(int value) {
+        Node p = head;
+        while (p != null) {
+            if (p.data == value) {
+                return p;
+            } else {
+                p = p.next;
+            }
+        }
+        return null;
+    }
 
 }
