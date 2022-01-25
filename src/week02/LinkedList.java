@@ -12,6 +12,7 @@ public class LinkedList {
     }
 
     private Node head = null;
+    private Node tail = null;
 
     /**
      * 遍历
@@ -62,6 +63,21 @@ public class LinkedList {
                 p = p.next;
             }
             p.next = newNode;
+        }
+    }
+
+    /**
+     * 链尾插入优化2:添加tail指针
+     */
+    public void insertAtTailV2(int value) {
+        Node newNode = new Node(value, null);
+
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
         }
     }
 
