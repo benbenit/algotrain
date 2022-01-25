@@ -3,20 +3,15 @@ package week02;
 public class LinkedList {
     public class Node {
         public int data;
-        public Node next = null;
+        public Node next;
 
         public Node(int data, Node next) {
             this.data = data;
             this.next = next;
         }
-
-        public Node() {
-
-        }
     }
 
     private Node head = null;
-    private Node tail = null;
 
     /**
      * 遍历
@@ -69,36 +64,6 @@ public class LinkedList {
             p.next = newNode;
         }
     }
-
-    /**
-     * 链尾插入优化2:添加tail指针
-     */
-    public void insertAtTailV2(int value) {
-        Node newNode = new Node(value, null);
-
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail.next = newNode;
-            tail = newNode;
-        }
-    }
-
-    /**
-     * 链尾插入优化3:引入虚拟头节点
-     */
-    private Node headV3 = new Node();
-    private Node tailV3 = headV3;
-
-    public void insertAtTailV3(int value) {
-        Node newNode = new Node(value, null);
-
-        tailV3.next = newNode;
-        tailV3 = newNode;
-
-    }
-
 
 
 }
