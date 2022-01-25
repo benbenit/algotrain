@@ -3,11 +3,15 @@ package week02;
 public class LinkedList {
     public class Node {
         public int data;
-        public Node next;
+        public Node next = null;
 
         public Node(int data, Node next) {
             this.data = data;
             this.next = next;
+        }
+
+        public Node() {
+
         }
     }
 
@@ -80,6 +84,21 @@ public class LinkedList {
             tail = newNode;
         }
     }
+
+    /**
+     * 链尾插入优化3:引入虚拟头节点
+     */
+    private Node headV3 = new Node();
+    private Node tailV3 = headV3;
+
+    public void insertAtTailV3(int value) {
+        Node newNode = new Node(value, null);
+
+        tailV3.next = newNode;
+        tailV3 = newNode;
+
+    }
+
 
 
 }
